@@ -5,6 +5,6 @@ export default interface ICourseRepo {
     getAll(): Promise< Course[]>;
     getById(id: number):  Promise<Course | null>;
     add(course: Optional<any, string>):  Promise<Course | null>;
-    update(course: Course): Promise<number> ;
+    update(course: Course): Promise<string> ;
     delete(id: number):  Promise<Course | null>;
 }

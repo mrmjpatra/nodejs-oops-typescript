@@ -1,9 +1,10 @@
 import { Router } from 'express';
-import CourseCtrl from '../controller/CourseCtrl';
+import CourseCtrlImpl from '../controller/course/CourseCtrlImpl';
+
 
 class CourseRoutes {
   router = Router();
-  private courseCtrl = new CourseCtrl();
+  private courseCtrl = new CourseCtrlImpl();
   public constructor() {
     this.intializeRoutes();
   }

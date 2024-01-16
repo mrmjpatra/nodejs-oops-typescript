@@ -15,13 +15,13 @@ export default class CourseService implements ICourseService {
             throw error;
         }
     }
-    async updateCourse(course: Course): Promise<Course | null> {
-       try {
-              const updatedCourse = await this.courseRepo.update(course);
-              return this.getCourseById(course.id.toString());
-         } catch (error) {
+    async updateCourse(course: Course): Promise<string> {
+        try {
+            const updatedCourse = await this.courseRepo.update(course);
+            return updatedCourse;
+        } catch (error) {
             throw error;
-         }
+        }
     }
     async deleteCourse(id: number): Promise<Course | null> {
         try {
@@ -39,7 +39,7 @@ export default class CourseService implements ICourseService {
             throw error;
         }
     }
-   
+
     async getCourseById(id: string): Promise<Course | null> {
         try {
             const course = await this.courseRepo.getById(Number(id));
@@ -48,7 +48,7 @@ export default class CourseService implements ICourseService {
             throw error;
         }
     }
-   
-   
+
+
 
 }

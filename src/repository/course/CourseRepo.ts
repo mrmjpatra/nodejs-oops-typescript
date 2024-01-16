@@ -11,14 +11,17 @@ export default class CourseRepo implements ICourseRepo {
             throw error;
         }
     }
-    async update(course: Course): Promise<number> {
+    async update(course: Course): Promise<string> {
         try {
-            const updateCourse = await Course.update(course, {
+            const [affectedCount] = await Course.update(course, {
                 where: {
                     id: course.id
                 }
             });
-            return updateCourse[0];
+            if (affectedCount===1) {
+                return "Course updated successfully";
+            }
+            throw new Error('Course not found or req.body is empty');
         } catch (error) {
             throw error;
         }
